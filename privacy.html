@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="description" content="Gmail AI Assistant 隐私政策：个人自用、只读访问、本地加密、Limited Use，以及数据保留和删除规则。">
+  <title>隐私政策 · Gmail AI Assistant</title><link rel="canonical" href="https://wkk8800-commits.github.io/privacy.html"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="shell">
+  <header class="topbar"><a class="brand" href="index.html">Gmail AI Assistant<small>个人自用 · Mac 本地应用</small></a><nav aria-label="主要导航"><a href="index.html">应用首页</a><a href="privacy.html" aria-current="page">隐私政策</a></nav></header>
+  <main id="main">
+    <div class="policy-header"><p class="eyebrow">隐私政策</p><h1>数据如何使用，<br>如何保护。</h1><p class="lead">本政策说明本应用的数据用途、访问边界、存储方式及当前未启用的功能。尚未接入真实 Gmail，也未向 AI 或通知服务传输真实邮件。</p><p class="small">生效日期：2026-10-18</p></div>
+    <div class="policy-layout">
+      <nav class="toc" aria-label="隐私政策目录"><strong>本页内容</strong><a href="#purpose">01 用途与当前状态</a><a href="#data">02 数据与权限</a><a href="#limited-use">03 Google 数据与 Limited Use</a><a href="#storage">04 存储与安全</a><a href="#services">05 外部服务</a><a href="#revoke">06 撤销授权</a><a href="#deletion">07 保留与删除</a><a href="#site">08 静态页面</a><a href="#updates">09 政策更新与联系</a></nav>
+      <div class="policy-body">
+        <section id="purpose"><h2><span>01</span>用途与当前状态</h2><p>Gmail AI Assistant 是应用所有者本人使用的 Mac 本地邮件助手，不面向公众分发。它不是 Google 官方产品，也不代表 Google。</p><p>邮件处理功能目前仅完成离线开发及合成数据测试，尚未申请真实 Gmail 用户授权、读取真实账户资料或邮件。Telegram Bot 和 Bark 已选定、尚未接入本邮件助手；AI 服务和模型尚未确定，macOS 真实通知未启用。邮件发送入口持续关闭。</p></section>
+        <section id="data"><h2><span>02</span>计划处理的数据与权限</h2><p>唯一计划申请的 Gmail OAuth 范围是 <strong>gmail.readonly</strong>。该范围可读取邮箱信息，不授予发送、修改、删除或归档邮件的权限。账户验证、有限邮件验证与持续同步是不同步骤，必须分别获得所有者批准。</p><p>未来获批准的本地处理可能涉及邮件标识、会话标识、接收与发现时间、邮件头，以及后续另行批准读取的内容；处理结果包括分类、英文草稿、独立中文译文、通知和审核状态、队列及同步检查点。</p><p><strong>当前真实正文读取关闭。</strong> Gmail 的正文响应可能包含内嵌附件，尚不能将“不主动下载附件”当作“没有接收附件内容”。有限读取的范围、总量及内容选项必须明确，不自动扩大。</p></section>
+        <section id="limited-use"><h2><span>03</span>Google 用户数据与 Limited Use</h2><p>Gmail AI Assistant 对从 Google API 获取的信息的使用及向其他应用的转移，将遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes" rel="noreferrer">Google API Services User Data Policy</a>（包括 Limited Use 要求），以及适用的 <a href="https://developers.google.com/workspace/workspace-api-user-data-developer-policy#limited_use_of_user_data" rel="noreferrer">Google Workspace 用户数据与开发者政策</a>。当前尚未接入真实 Gmail 或 AI 服务。</p><p>今后仅在本人明确授权后，按已披露的用途处理获准的 Google 用户数据及其派生内容。本应用不会出售这些数据，不会将其用于广告投放或定向广告，也不会将其用于、或允许受托服务将其用于创建、训练或改进面向其他用户的通用 AI 或机器学习模型。</p><p>启用外部服务前，将确认服务提供商、传输字段及数据使用规则符合上述限制，并更新相应隐私披露；未完成确认前，不向其传输真实邮件。此声明不表示已经通过 Google 验证或真实服务验收。</p></section>
+        <section id="storage"><h2><span>04</span>本地存储与安全边界</h2><p>本地存储后端使用 SQLCipher Community Edition 加密邮件相关数据库，包括草稿、译文、处理队列、通知记录、审核状态和同步检查点。已用合成数据验证加密库、WAL 数据页与加密备份；部分文件结构元数据和运行时内存不能等同于全字节加密或安全擦除。</p><p>凭据保护采用应用专用原生辅助程序和 macOS Keychain。刷新凭据与数据库密钥分开保存；当前实际测试只使用虚构凭据，生产规则与真实凭据启用保持分离。无法获取原密钥时停止，不创建替代密钥、不清空数据库、不重置检查点。</p><p>本地文件权限、代码身份和加密不能抵御所有同用户权限下的入侵、内存读取或系统失陷。真实备份的密钥恢复安排仍待批准；重新授权 Gmail 不能恢复丢失的数据库密钥。</p></section>
+        <section id="services"><h2><span>05</span>外部服务与可能的数据传输</h2><p>本应用不声称所有数据永不离开 Mac。Gmail 只读访问尚未授权；Telegram Bot 和 Bark 已选定、尚未接入；AI 服务和模型尚未确定。各服务的具体传输字段、费用及保留规则仍须在启用前确认。</p>
+          <table class="flow"><thead><tr><th scope="col">服务</th><th scope="col">后续需确认的处理</th><th scope="col">当前状态</th></tr></thead><tbody>
+          <tr><th scope="row">Google / Gmail</th><td>授权交换与只读请求；允许读取的账户、日期、总量和内容范围。</td><td>未用户授权</td></tr>
+          <tr><th scope="row">AI 服务</th><td>供应商、模型、费用，以及起草所需邮件字段、上下文、保留与训练使用条款。</td><td>服务与模型尚未确定</td></tr>
+          <tr><th scope="row">Telegram Bot</th><td>审核会话、管理员标识及拟发送的摘要、草稿、译文和交互信息。</td><td>已选定、尚未接入</td></tr>
+          <tr><th scope="row">Bark / 推送链路</th><td>服务部署方式、提醒字段、设备相关标识，以及服务方与推送链路的数据处理。</td><td>已选定、尚未接入</td></tr>
+          <tr><th scope="row">macOS 通知</th><td>本机显示的提醒字段，以及锁屏或共享屏幕时的可见性。</td><td>助手真实通知关闭</td></tr>
+          </tbody></table><p>在确认服务和披露之前，不会通过这些功能传输真实邮件。任何未来发送能力均不属于当前已启用功能；现有人工审核只改变本地状态，不触发邮件发送。</p></section>
+        <section id="revoke"><h2><span>06</span>如何撤销授权</h2><p>如果未来完成授权，所有者可在 Google 账号的第三方连接管理中找到本应用并移除访问权限，以撤销后续访问。应用内专用撤销入口尚未实现，本政策不宣称存在该功能。</p><p>撤销授权不会自动删除已经保存在 Mac、备份或曾获批准接收数据的外部服务中的副本。当前尚无真实 Gmail 用户授权可撤销。</p></section>
+        <section id="deletion"><h2><span>07</span>数据保留与删除</h2><p><strong>当前没有自动到期删除或一键删除功能，不默认开启真实数据自动备份。</strong> 首轮有限只读验证仍须另行批准邮箱、范围、整次总量及内容选项，并使用专用工作副本。本政策生效不构成真实 Gmail 授权或邮件读取许可。</p><p>首轮验证完成或终止时，立即停止使用该工作副本，列出本次工作副本及任何单独获准产生的备份，经所有者确认具体清单后再人工清理。未经清理确认不自动删除；没有自动到期删除期限，在确认并实际清理前，工作副本可继续保留在本机。</p><p>工作数据、备份和 Keychain 凭据分别核对。清理工作副本不自动删除 Gmail 原始邮件、刷新凭据或数据库密钥。凭据删除与授权撤销须分别确认；删除数据库密钥前，须确认没有仍需保留的加密数据或备份依赖该密钥。合成测试副本的清理不等于真实数据删除已经验收。</p><p>撤销 Gmail 访问权限与删除本地数据是不同操作。删除本地文件不代表废纸篓、系统快照、其他备份或外部服务副本同时消失，也不承诺 SSD 安全擦除。已经传输到第三方的数据还需按相应服务的规则处理。</p></section>
+        <section id="site"><h2><span>08</span>这两页静态说明页面</h2><p>应用首页与本隐私政策由 GitHub Pages 托管，位于同一受控域名。页面没有登录、上传表单、追踪脚本、统计代码或邮件处理后端，也不包含真实邮件、账号凭据、私有配置或操作入口。</p><p>GitHub Pages 为安全目的记录访问者 IP 地址。页面自身不设置应用登录或追踪功能，但托管服务仍可能处理访问请求信息；相关处理由 GitHub 的隐私政策说明。</p><p>正式首页：<a href="https://wkk8800-commits.github.io/">https://wkk8800-commits.github.io/</a><br>隐私政策：<a href="https://wkk8800-commits.github.io/privacy.html">https://wkk8800-commits.github.io/privacy.html</a></p></section>
+        <section id="updates"><h2><span>09</span>政策更新与联系</h2><p>在启用新的数据读取、AI 或通知服务前，将先更新相应的数据用途、接收方和隐私说明，并取得必要批准。</p><p>维护者：个人自用应用维护者<br>联系：<a href="https://github.com/wkk8800-commits/wkk8800-commits.github.io/issues">通过 GitHub Issues 联系</a><br>本政策生效日期：2026-10-18</p><p><a href="index.html">← 返回应用首页</a></p></section>
+      </div>
+    </div>
+  </main>
+  <footer class="footer"><p>Gmail AI Assistant · 非 Google 官方产品</p><p>隐私政策 · 生效日期：2026-10-18</p></footer>
+</div>
+</body></html>
